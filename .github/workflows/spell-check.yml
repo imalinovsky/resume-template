@@ -36,5 +36,3 @@ jobs:
       shell: bash
     - name: Check spelling
       uses: mpokryva/spell-check-action@v1
-      with:
-        text: ${{ env.text }}
