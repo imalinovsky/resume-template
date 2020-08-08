@@ -8,6 +8,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Check Spelling
-      uses: .github/actions/check-spelling.yml
+      uses: .github/actions/check-spelling
       with:
         who-to-greet: 'Miki'
