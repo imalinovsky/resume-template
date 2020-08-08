@@ -26,9 +26,9 @@ jobs:
       shell: bash
     - name: Set input text
       id: set_text
-      run: echo "::set-output name=text::$(cat _site/index.html)"
+      run: echo "::set-env name=text::$(cat _site/index.html)"
       shell: bash
     - name: Check spelling
       uses: mpokryva/spell-check-action@v1
       with:
-        text: ${{ steps.set_text.outputs.text }}
+        text: ${{ env.text }}
