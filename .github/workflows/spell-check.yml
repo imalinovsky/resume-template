@@ -25,8 +25,11 @@ jobs:
       run: bundle exec jekyll build
       shell: bash
     - name: Check spelling mistakes
+      with:
+        check-file: _site/index.html
+        ignore-file: ignore_dict.txt
       run: |
-        diff=$(comm -23 <(cat _site/index.html | aspell list --mode=html | sort --unique) <(sort --unique ignore_dict.txt ))
+        diff=$(comm -23 <(cat ${{inputs.check-file}} | aspell list --mode=html | sort --unique) <(sort --unique ${{inputs.ignore-file}}))
         echo $diff
         if [[ $diff ]]; then
           exit 1
