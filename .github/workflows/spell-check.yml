@@ -1,27 +1,13 @@
 name: Check Spelling (JS, Vue, HTML, Markdown, Text)
 
-on: 
-  pull_request:
-    paths:
-    - '**.js'
-    - '**.vue'
-    - '**.txt'
-    - '**.html'
-    - '**.md'
-  push:
-    paths:
-    - '**.js'
-    - '**.vue'
-    - '**.txt'
-    - '**.html'
-    - '**.md'
+on: [pull_request, push]
 
 jobs:
   spelling:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      with:
-        ref: ${{ github.head_ref }}
     - name: Check Spelling
-      uses: UnicornGlobal/spellcheck-github-actions@master
+      uses: ./.github/actions/check-spelling
+      with:
+        who-to-greet: 'Miki'
