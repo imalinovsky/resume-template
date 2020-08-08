@@ -26,7 +26,7 @@ jobs:
       shell: bash
     - name: Check spelling mistakes
       run: |
-        diff=$(comm -23 <(cat ${{inputs.check-file}} | aspell list --mode=html | sort --unique) <(sort --unique ${{inputs.ignore-file}}))
+        diff=$(comm -23 <(cat _site/index.html | aspell list --mode=html | sort --unique) <(sort --unique ignore_dict.txt ))
         echo $diff
         if [[ $diff ]]; then
           exit 1
