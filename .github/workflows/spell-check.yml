@@ -7,9 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Build Jekyll site
+      run: bundle exec jekyll build
+      shell: bash
     - name: Set input text
       id: set_text
       run: echo "::set-output name=text::$(ls)"
+      shell: bash
     - name: Check spelling
       uses: mpokryva/spell-check-action@v1
       with:
