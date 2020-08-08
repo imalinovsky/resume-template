@@ -28,3 +28,4 @@ jobs:
       uses: mpokryva/spell-check-action@v1
       with:
         check-file: "_site/index.html"
+        ignore-file: "ignore_dict.txt"
