@@ -24,15 +24,7 @@ jobs:
     - name: Build Jekyll site
       run: bundle exec jekyll build
       shell: bash
-    - name: Set input text
-      id: set_text
-      run: |
-        content=$(cat _site/index.html)
-        content="${content//'%'/'%25'}"
-        content="${content//$'\n'/'%0A'}"
-        content="${content//$'\r'/'%0D'}" 
-        echo $content
-        echo "::set-env name=text::$content"
-      shell: bash
     - name: Check spelling
       uses: mpokryva/spell-check-action@v1
+      with:
+        check-file: "_site/index.html"
