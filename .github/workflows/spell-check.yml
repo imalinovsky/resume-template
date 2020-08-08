@@ -24,4 +24,4 @@ jobs:
     - name: Check spelling
       uses: mpokryva/spell-check-action@v1
       with:
-        text: ${{steps.set_text.text}}
+        text: ${{ steps.set_text.outputs.text }}
