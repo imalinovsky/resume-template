@@ -62,3 +62,8 @@ trilingual
 uncomment
 url
 urls
+AWS
+Elasticsearch
+Memcached
+MongoDB
+iOS
