@@ -7,7 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Check Spelling
+    - name: Set input text
+      id: set_text
+      run: echo "::set-output name=text::$(cat _site/index.html)"
+    - name: Check spelling
       uses: mpokryva/spell-check-action@v1
       with:
-        who-to-greet: 'Miki'
+        text: ${{steps.set_text.text}}
